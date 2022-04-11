@@ -16,4 +16,18 @@ namespace CharismaShop.Repository
         base(dbContext)
         { }
     }
+
+    public class DeliveryRepository : BaseRepository<Delivery>
+    {
+        public DeliveryRepository(AppDbContext dbContext) :
+        base(dbContext)
+        { }
+    }
+
+    public class CustomerRepository : BaseRepository<Customer>
+    {
+        public CustomerRepository(AppDbContext dbContext) :
+        base(dbContext)
+        { }
+    }
 }

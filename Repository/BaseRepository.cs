@@ -27,7 +27,7 @@ namespace CharismaShop.Repository
         public async Task<T> AddAsync(T entity)
         {
             var a = await DbSet.AddAsync(entity);
-            _context.SaveChanges();
+            await SaveChangesAsync();
             return a.Entity;
         }
 
@@ -39,7 +39,7 @@ namespace CharismaShop.Repository
         public async Task<T> UpdateAsync(T entity)
         {
             var newObject = _context.Update(entity).Entity;
-            await _context.SaveChangesAsync();
+            await SaveChangesAsync();
             return newObject;
         }
 

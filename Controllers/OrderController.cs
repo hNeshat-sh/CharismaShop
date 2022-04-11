@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using CharismaShop.Services;
 using CharismaShop.Model;
+using CharismaShop.Dto;
 
 namespace CharismaShop.Controllers;
 
@@ -17,9 +18,16 @@ public class OrderController : ControllerBase
         _orderService = orderService;
     }
 
-    [HttpGet(Name = "get-orders")]
+    [HttpGet]
     public IEnumerable<Order> Get()
     {
         return _orderService.GetAll();
+    }
+
+    [HttpPost]
+    [Route("create")]
+    public async Task CreateOrder([FromBody] OrderDto dto)
+    {
+        await _orderService.CreateOrderAsync(dto);
     }
 }
