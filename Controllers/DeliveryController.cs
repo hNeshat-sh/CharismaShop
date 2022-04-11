@@ -12,7 +12,8 @@ namespace CharismaShop.Controllers
         private readonly ILogger<DeliveryController> _logger;
         private readonly IDeliveryService _deliveryService;
 
-        public DeliveryController(ILogger<DeliveryController> logger, IDeliveryService deliveryService)
+        public DeliveryController(ILogger<DeliveryController> logger, 
+            IDeliveryService deliveryService)
         {
             _logger = logger;
             _deliveryService = deliveryService;
@@ -22,6 +23,13 @@ namespace CharismaShop.Controllers
         public IEnumerable<Delivery> Get()
         {
             return _deliveryService.GetAll();
+        }
+
+        [HttpPost]
+        [Route("create")]
+        public async Task CreateDelivery([FromBody] DeliveryDto dto)
+        {
+            await _deliveryService.CreateAsync(dto);
         }
 
     }

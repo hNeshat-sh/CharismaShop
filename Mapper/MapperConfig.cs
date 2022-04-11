@@ -11,6 +11,8 @@ namespace CharismaShop.Mapper
             CreateMap<OrderDto, Order>();
 
             CreateMap<OrderItemDto, OrderItem>();
+
+            CreateMap<DeliveryDto, Delivery>();
         }
 
     }

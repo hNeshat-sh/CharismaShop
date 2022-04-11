@@ -32,6 +32,7 @@ services.AddDbContext<AppDbContext>(options =>
 services.AddScoped<IOrderService, OrderService>();
 services.AddScoped<IProductService, ProductService>();
 services.AddScoped<IProductService, ProductService>();
+services.AddScoped<IDeliveryService, DeliveryService>();
 
 //Repositories
 services.AddScoped<IRepository<Order>, OrderRepository>();
